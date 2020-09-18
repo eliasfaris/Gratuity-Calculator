@@ -1,0 +1,33 @@
+{% extends 'base.html' %}
+
+{% block content %}
+<head>
+    <title>{{ title }}</title>
+    {% load static %}
+    <link rel="stylesheet" type="text/css" href="{% static 'addemployee.css' %}">
+    <script>
+        var page='{{ page }}';
+    </script>
+</head>
+<!-- main content-->
+<h4>Edit Employee</h4>
+<form method="POST" class="post-form" id = "form" onsubmit="return checkDelete()">
+    {% include 'alert.html' %}
+    {% csrf_token %}
+    <div class="wrapper">
+        <div class="forms">
+            {{ form.name }}
+            {{ form.point }}
+            {{ form.phone }}
+        </div>
+        <div class="form-buttons center-align">
+            <button type="submit" name="save_button" class="save">Save</button>
+            <button type="submit" name="cancel_button" class="cancel" formnovalidate>Cancel</button><br>
+            <button type="submit" name="delete_button" class="delete" onclick="onDelete()">Delete</button>
+      
+        </div>
+    </div>
+</form>
+<script src = "{% static 'edit_employee.js' %}"></script>
+<!-- end main content-->
+{% endblock %}

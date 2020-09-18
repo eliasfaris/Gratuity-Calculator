@@ -1,0 +1,88 @@
+{% extends 'base_employee.html' %}
+
+{% block content %}
+<head>
+    <title>{{ title }}</title>
+    {% load static %}
+    <link rel="stylesheet" type="text/css" href="{% static 'weekly_reports.css' %}">
+    <script>
+        var page = '{{ page }}';
+    </script>
+</head>
+
+<!-- main content-->
+<h4>Weekly Reports</h4>
+<div id="search-bar">
+    <form method="POST">
+        {% csrf_token %}
+
+        <label>Enter a date to view the tips of the week which includes the date you have entered</label> 
+        <input type="Date" name="date_input" id="date_input" required>
+        <div class="center-align">
+            <input type="submit" value="Search">
+        </div>
+    </form>
+</div>
+
+<table>
+    <tr>
+        <th colspan=""></th>
+        {% for date in days_dates %}
+            <th colspan="2">{{ date }}</th>
+        {% endfor %}
+    </tr>
+    <tr>
+        <th colspan="1"></th>
+        <th colspan="2">Monday</th>
+        <th colspan="2">Tuesday</th>
+        <th colspan="2">Wednesday</th>
+        <th colspan="2">Thursday</th>
+        <th colspan="2">Friday</th>
+        <th colspan="2">Saturday</th>
+        <th colspan="2">Sunday</th>
+        <th>Total</th>
+    </tr>
+    <tr>
+        <th colspan="1"></th>
+
+        <th>AM</th>
+        <th>PM</th>
+
+        <th>AM</th>
+        <th>PM</th>
+
+        <th>AM</th>
+        <th>PM</th>
+
+        <th>AM</th>
+        <th>PM</th>
+
+        <th>AM</th>
+        <th>PM</th>
+
+        <th>AM</th>
+        <th>PM</th>
+
+        <th>AM</th>
+        <th>PM</th>
+    </tr>
+
+    {% for k, v in all_info.items %}
+        <tr>
+            <th>{{ k }}</th>
+            {% for k1, v1 in v.items %}
+                {% for detail in v1 %}
+                    <td>{{ detail }}</td>
+                {% endfor %}
+            {% endfor %}
+
+            {% for emp, total in total_info.items %}
+                {% if emp == k %}
+                    <td class="total_data">{{ total }}</td>
+                {% endif %}
+            {% endfor %}
+        </tr>
+    {% endfor %}
+</table>
+<!-- end main content-->
+{% endblock %}

@@ -1,0 +1,210 @@
+@import url(https://fonts.googleapis.com/css?family=Lato);
+
+body {
+    font-family: Lato !important;
+    background-color: #ffffff;
+    width: 100%;
+    height: 100%;
+}
+
+h1 {
+    font-size: 32px !important;
+}
+
+h3 {
+    padding-top: 5px;
+    font-size: 1.17rem !important;
+}
+
+h1, h3 {
+    color: #060c28;
+    margin: 5px !important;
+}
+
+#corner-menu ul {
+    display: flex;
+    float: right;
+}
+
+#corner-menu ul li {
+    padding: 5px;
+}
+
+#corner-menu button#logout {
+    border: transparent !important;
+    background-color: transparent !important;
+    font-family: Lato;
+    cursor: pointer !important;
+    font-size: 18px;
+}
+
+#corner-menu button#logout::after {
+    content: '';
+    display: block;
+    position: absolute;
+    width: 0;
+    height: 1.5px;
+    border-bottom: 1px solid #000000;
+    transition: width 450ms ease;
+}
+
+#corner-menu button#logout:hover::after{
+    width: 5rem;
+    transition: width 450ms ease;
+}
+
+h3::after {
+    content: '';
+    display: block;
+    position: absolute;
+    width: 8rem;
+    height: 1.5px;
+    border-bottom: 1px solid #000000;
+}
+
+h1::after {
+    content: '';
+    display: block;
+    position: absolute;
+    width: 15rem;
+    height: 1.5px;
+    border-bottom: 1.5px solid #000000;
+}
+
+#navbar {
+    background-color: #ffffff;
+}
+
+nav {
+    background-color: transparent !important;
+    box-shadow: none !important;
+}
+
+#nav ul {
+    list-style: none;
+    display: flex;
+    flex-direction: column;
+    transform: translateY(20vh);
+}
+
+#nav ul li a {
+    color: #000000;
+    font-size: 18px;
+    text-decoration: none;
+    font-weight: lighter;
+    border-left: 1px solid #000000;
+}
+
+#nav ul li a.active::after {
+    content: '';
+    display: block;
+    position: absolute;
+    width: 17.5rem;
+    height: 1.5px;
+    border-bottom: 1px solid #000000;
+}
+
+#nav ul li a::after {
+    content: '';
+    display: block;
+    position: absolute;
+    width: 0;
+    height: 1.5px;
+    border-bottom: 1px solid #000000;
+    transition: width 450ms ease;
+}
+
+#nav ul li a:hover {
+    background-color: rgba(0,0,0,0);
+}
+
+#nav ul li a:hover::after{
+    width: 17.5rem;
+    transition: width 450ms ease;
+}
+
+#main-content {
+    height: 85vh;
+    overflow-y: auto;
+    overflow-x: auto;
+}
+
+@media only screen and (max-width: 992px) {
+    #nav ul {
+        flex-direction: row !important;
+        transform: none !important;
+        justify-content: center;
+        border: 1px solid black;
+    }
+
+    #nav ul li a {
+        font-size: 14px;
+        transform: translateY(0);
+        transition: transform 450ms ease;
+        border-left: none;
+    }
+
+    #nav ul li a.active::after {
+        border-bottom: none;
+    }
+
+    #nav ul li a.active {
+        text-decoration: underline
+    }
+
+    #nav ul li a:hover::after {
+        width: 0;
+    }
+
+    #nav ul li a:hover {
+        transform: translateY(-3px);
+        transition: all 450ms ease;
+    }
+
+    #nav ul li .fas, #nav ul li .far {
+        display: none;
+    }
+}
+
+@media only screen and (max-width: 561px) {
+    #nav ul li a {
+        font-size: 11px;
+    }
+
+    #nav ul li a.active::after {
+        border-bottom: none;
+    }
+
+    #nav ul li a:hover {
+        transform: translateY(-2px);
+        transition: all 450ms ease;
+    }
+}
+
+/*
+#list li {
+    display: inline-block;
+    background-color: rgba(41, 20, 4, 0.602);
+    border-radius:4%;
+    margin:0 .5%;
+    font-family:"Lato";
+    padding:0;
+}
+#list li a{
+    padding: 1em;
+    display: block;
+
+}
+
+#list li:hover{
+    background-color: rgba(41, 20, 4, 0.924);
+    transition: background-color ease-in 300ms;
+}
+#list a{
+    color:white;
+    text-decoration:none;
+}
+body{
+    margin:0;
+}
+*/

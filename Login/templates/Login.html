@@ -1,0 +1,64 @@
+<!DOCTYPE html>
+    <html lang="en">
+
+        <!-- head-->
+        <head>
+            <title>Login | Chelokababi Restaurant</title>
+            <meta charset="utf-8">
+            <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+            <!-- IMPORTS-->
+                <!-- font awesome import-->
+                <script src="https://kit.fontawesome.com/60c36ce90b.js" crossorigin="anonymous"></script>
+                <!-- custom css import-->
+                {% load static %}
+                <link rel="stylesheet" href="{% static 'stylesheets/login.css' %}" type="text/css">
+
+        </head>
+        <!-- end of file head-->
+
+        <!-- body -->
+        <body>
+            <div id="login-wrapper">
+                
+                <!-- div for the login header-->
+                <div class="login-header">
+                    <h1>Login</h1>
+                </div>
+                <!-- end of the login header-->
+
+                <!-- div for the login form itself / will now be manually rendered to allow for more customization-->
+                <div class="login-form">
+                    <form action="." method="POST">
+                        {% csrf_token %}
+                        <fieldset>
+                            {{ form.non_field_errors }}
+                            <div class="email">
+                                <span id="email-icon">
+                                    {{ form.email.errors }}
+                                    <label for="{{ form.email.id_for_label }}"><i class="fa fa-paper-plane-o fa-lg"></i></label>
+                                    {{ form.email }}
+                                </span>
+                            </div>
+                            <div class="password">
+                                <span id="password-icon">
+                                    {{ form.password.errors }}
+                                    <label for="{{ form.password.id_for_label }}"><i class="fas fa-fingerprint fa-lg"></i></label>
+                                    {{ form.password }}
+                                </span>
+                            </div>
+                            <div class="errors">
+                                <p> {{ error }}</p>
+                            </div>
+                            <div class="submission">
+                                <input type="submit" id="submit" value="Login">
+                            </div>
+                        </fieldset>
+                    </form>
+                </div>
+                <!-- end of the login form rendering-->
+
+            </div>
+        </body>
+        <!-- end of file body-->
+    </html>

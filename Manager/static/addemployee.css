@@ -1,0 +1,148 @@
+body {
+    background-color: #ffffff;
+}
+
+.forms input[type="text"] {
+    margin-top: 17.5px;
+    font-size: 18.5px;
+    border-bottom: 1px solid rgba(158, 158, 158, 0.5);
+    transition: border-bottom 450ms ease;
+}
+
+.forms input[type="number"] {
+    margin-top: 17.5px;
+    font-size: 18.5px;
+    border-bottom: 1px solid rgba(158, 158, 158, 0.5);
+    transition: border-bottom 450ms ease;
+}
+
+.forms #nameField:focus {
+    border-bottom: 1px solid #000000 !important;
+    box-shadow: 0 0.5px 0 0 #000000;
+}
+
+.forms #nameField:hover {
+    border-bottom: 1px solid #000000 !important;
+    box-shadow: 0 0.5px 0 0 #000000;
+    transition: all 450ms ease;
+}
+
+.forms #nameField::placeholder {
+    color: rgba(158, 158, 158, 0.5);
+    transition: all 450ms ease;
+}
+
+.forms #nameField:hover::placeholder {
+    color: #000000;
+    transition: color 450ms ease;
+}
+
+.forms #pointField:focus {
+    border-bottom: 1px solid #000000 !important;
+    box-shadow: 0 0.5px 0 0 #000000;
+}
+
+.forms #pointField:hover {
+    border-bottom: 1px solid #000000 !important;
+    box-shadow: 0 0.5px 0 0 #000000;
+    transition: all 450ms ease;
+}
+
+.forms #pointField::placeholder {
+    color: rgba(158, 158, 158, 0.5);
+    transition: all 450ms ease;
+}
+.forms #pointField:hover::placeholder {
+    color: #000000;
+    transition: color 450ms ease;
+}
+
+.forms #phoneField:hover {
+    border-bottom: 1px solid #000000 !important;
+    box-shadow: 0 0.5px 0 0 #000000;
+    transition: all 450ms ease;
+}
+
+.forms #phoneField:focus {
+    border-bottom: 1px solid #000000 !important;
+    box-shadow: 0 0.5px 0 0 #000000;
+}
+
+.forms #phoneField::placeholder {
+    color: rgba(158, 158, 158, 0.5);
+    transition: all 450ms ease;
+}
+.forms #phoneField:hover::placeholder {
+    color: #000000;
+    transition: color 450ms ease;
+}
+
+.form-buttons button {
+    background: transparent;
+    border: 1px solid black;
+    width: 250px;
+    height: 35px;
+    margin: 25px 15px 5px 15px;
+}
+
+.form-buttons button:hover {
+    cursor: pointer;
+}
+
+.form-buttons button.save {
+    background-color: none;
+    transition: background-color 450ms ease;
+}
+
+.form-buttons button.save:hover {
+    background-color: rgba(51, 211, 36, 0.2);
+    transition: background-color 450ms ease;
+}
+
+.form-buttons button.cancel {
+    background-color: none;
+    transition: background-color 450ms ease;
+}
+
+.form-buttons button.cancel:hover {
+    background-color: rgba(218, 92, 54, 0.2);
+    transition: background-color 450ms ease;
+}
+
+.form-buttons button.delete {
+    background-color: none;
+    transition: background-color 450ms ease;
+}
+
+.form-buttons button.delete:hover {
+    background-color: rgba(255, 64, 64, 0.2);
+    transition: background-color 450ms ease;
+}
+
+/*
+.wrapper{
+    margin:2%;
+    background-color: rgba(131, 78, 57, 0.198);
+    padding:10%;
+}
+.forms{
+
+    background-color: red;
+}
+.labels-div{
+    background-color: rgb(112, 112, 173);
+    float: left;
+    width: 50%;
+}
+.labels{
+    float: right;
+}
+.textField-div{
+    background-color: green;
+    float: right;
+    width: 50%;
+}
+.nameField, .phoneField, .pointField{
+    padding:1%;
+}
+*/

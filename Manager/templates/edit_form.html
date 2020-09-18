@@ -1,0 +1,160 @@
+{% extends 'base.html' %}
+
+{% block content %}
+<head>
+    <title>{{ title }}</title>
+    {% load static %}
+    <link rel="stylesheet" type="text/css" href="{% static 'edit_form.css' %}">
+    <script>
+        var page = "{{ page }}";
+    </script>
+</head>
+
+<!-- main content-->
+<h4>Edit Form</h4><br>
+<form action="" method="POST" id="form" onsubmit="return validate()">
+    {% include 'alert.html' %}
+
+    {% csrf_token %}
+    {{form.management_form}}
+        
+    <div id="wrapper">
+        <!-- first section-->
+        <div class="row" id="top-section">
+            <div class="col s3 m3 l3 asd">
+                <label for="cc_tip" class="requires-input" id="ccLabel">Credit Card Tip:</label>
+                {{new_form.cc_tip}}
+                <label for="sc_label" class="requires-input" id="scLabel">Service Charge:</label>
+                {{new_form.service_charge}}
+
+                <label for="Total_Tip_By_Cards" class="readonly bottom" id="ttbcLabel">Total Tip By CC:</label>
+                <input readonly type="number" id="Total_Tip_By_Cards">
+            </div>
+
+            <div class="col s3 m3 l3 asd">
+                <label class="requires-input" id="csLabel">Cash Sales:</label>
+                {{new_form.cash_sales}}
+                <label class="requires-input" id="ctLabel">Cash Tip:</label>
+                {{new_form.cash_tip}}
+                <label class= "readonly bottom" id="tcLabel">Total Cash:</label>
+                <input readonly type="number" id="Total_Cash">
+            </div>
+
+            <div class="col s3 m3 l3 asd">
+                <label class="readonly" id="ccLabel2">CC Tip(s):</label>
+                <input readonly type="number" id="Total_Tip_By_Cards_2">
+                <label class= "readonly" id = "ctLabel2">Cash Tip:</label>
+                <input readonly type="number" id="cash_tip_2" onblur="total_tip()">
+                <label class= "readonly bottom" id = "ttLabel">Total Tip:</label>
+                <input readonly type="number" id="Total_Tip">
+            </div>
+
+            <div class="col s3 m3 l3 asd">
+                <label class="readonly" id="ttLabel2">Total Tip:</label>
+                <input readonly type="number" id="Total_Tip_2">
+                <label class="requires-input" id="pstLabel">Pre-Shift Tip:</label>
+                {{new_form.pre_shift_tip}}
+                <label class= "readonly bottom" id="stLabel">Shift Tip:</label>
+                <input readonly type="number" id="shift_tip">
+            </div>
+        </div>
+        <!-- hidden section-->
+            <div>
+        {% for form in form %}
+            {{form.id}}
+        {%endfor%}
+            </div>
+        <!-- second section-->
+        <div class="row" id="second-section">
+            <div class="col s5ths" id="names">
+                <h6>Name:</h6>
+                {% for form in form %}
+                    {{ form.employee }}
+                {%endfor%}
+            </div>
+
+            <div class="col s5ths" id="indexes">
+                <h6>Performance Index:</h6>
+                {% for form in form %}
+                    {{ form.point }}
+                {%endfor%}
+            </div>
+
+            <div class="col s5ths"  id="tips">
+                <h6>Tip:</h6>
+                {% for form in form %}
+                    {{ form.tip_amount }}
+                {%endfor%}
+            </div>
+
+            <div class="col s5ths" id="paid-todays">
+                <h6>Paid Today:</h6>
+                {% for form in form %}
+                    {{ form.paid_today }}
+                {%endfor%}
+            </div>
+            
+            <div class="col s5ths"  id="paid-laters">
+                <h6>Paid Later:</h6>
+                {% for form in form %}
+                    {{ form.paid_later }}
+                {%endfor%}
+            </div>
+        </div>
+
+        <!-- third section-->
+        <div class="row" id="third-section">
+            <div class="col s12 center-align" id="add-div">
+                <input type="button" id="add-button" onclick="addElement()" value="Add Employee">
+                <input type="button" id="calculate-tips" onclick="calculateTips()" value="Calculate Tips">
+            </div>
+        </div>
+        
+
+        <!-- fourth section -->
+        <div class="row" id="bottom-section">
+                <div class="col s2 m2 l2">
+                    <label class="" id="dateLabel">Date:</label>
+                    {{new_form.date}}
+                </div>
+
+                <div class="col s2 m2 l2">
+                    <label class="" id="tfLabel">Time Frame:</label>
+                    {{new_form.time_frame}}
+                </div>
+
+                <div class="col s2 m2 l2">
+                    <label class="" id="cbLabel">Closed By:</label>
+                    {{new_form.submitted_employee}}
+                </div>
+
+                <div class="col s2 m2 l2">
+                    <label class="readonly" id="tiLabel">Total Index:</label>
+                    <input readonly type="number" id="total_index" onfocus="calculateTotalIndex()">
+                </div>
+
+                <div class="col s2 m2 l2">
+                    <label class="readonly" id="tlLabel">Tip Left:</label>
+                    <input readonly type="number" id="tip_left">
+                </div>
+
+                <div class="col s2 m2 l2">
+                <label class="readonly" id="clLabel">Cash Left:</label>
+                <input readonly type="number" id="cash_left"><br>
+                </div> 
+        </div>
+
+        <div class="row">
+            <div class="col s12 m12 l12 center-align">
+                <input type="submit" value="Submit Changes" id="form-submit">
+                <input type="submit" value="Cancel" id = "cancel_button" name = "cancel_button" formnovalidate>
+                <input type="submit" value="Delete" id = "delete_button" name = "delete_button">
+            </div>
+        </div>
+    </div>
+</form>
+
+<input type="hidden" readonly id="query" type="text" value="{{ js_dict }}">
+<script src="{% static 'edit_form.js' %}"></script>
+<!-- end main content-->
+{% endblock %}

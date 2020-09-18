@@ -1,0 +1,57 @@
+<html>
+    <head>
+        {% load static %}
+        <!-- stylsheets-->
+        <link rel="stylesheet" type="text/css" href="{% static 'base.css' %}">
+        <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/materialize/1.0.0/css/materialize.min.css">
+        <!-- scripts-->
+        <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.5.0/jquery.min.js"></script>
+        <script src="{% static 'activeLink.js' %}"></script>
+    </head>
+
+    <!-- top row, consists of the dashboard title and the other page features (such as logout)-->
+    <div class="row">
+        <div class="col s6 m6" id="page-info">
+            <h3>Employee //</h3>
+            <h1>Dashboard</h1>
+        </div>
+        <div class="col s6 m6" id="corner-menu">
+            <ul>
+                <li><Button id="logout" onclick = "javascript:{document.getElementById('logOut').submit()}"> 
+                    Log Out
+               </Button>
+               <form action = "{% url 'logoutEmployee' %}" method = "POST" id = "logOut">
+                   {% csrf_token %}
+               </form>
+               </li>
+            </ul>
+        </div>
+    </div>
+
+    <!-- second row, consists of the side navigation bar and the page's main content-->
+    <div class="row" id="main-section-wrapper">
+        <!-- navigation sidebar-->
+        <div class="col s12 m12 l4" id="sidenav">
+            <nav id="nav">
+                <ul>
+                    <li id="list_item1"><span><a href="/employee/homepage">New Form</a></span></li>
+                    <li id="list_item3"><span><a href="weeklyreports">Weekly Reports</a></span></li>
+                </ul>
+            </nav>
+        </div>
+        <!-- end navigation sidebar-->
+
+        <!-- main content-->
+        <div class="col s12 m12 l8" id="main-content">
+            {% block content %}
+            {% endblock %}
+        </div>
+        <!-- end main content-->
+    </div>
+    <!-- end second row-->
+
+    <body>
+    </body>
+
+</html>
+

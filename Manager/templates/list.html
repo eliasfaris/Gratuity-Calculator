@@ -1,0 +1,29 @@
+{% extends 'base.html' %}
+
+{% block content %}
+<head>
+  <title>{{ title }}</title>
+  {% load static %}
+    <link rel = "stylesheet" type = "text/css" href = "{% static 'editemployee.css' %}">
+    <script>
+      var page = '{{ page }}';
+    </script>
+</head>
+
+<h4>Edit Employees</h4>
+<table>
+  <tr id="header">
+    <th>Employees</th>
+    <th>Point</th>
+    <th>Phone Number</th>
+  </tr>
+
+{% for instance in list %}
+  <tr>
+    <td><a href = '{{instance.get_absolute_url}}'>{{ instance.name }} </a></td>
+    <td>{{ instance.point }}</td>
+    <td>{{ instance.phone }}</td>
+  </tr>
+{% endfor %}
+</table>
+{% endblock %}
