@@ -14,6 +14,7 @@ This project taught us how to use Django's framework as a backend and having a f
 2. Run: python manage.py runserver
 3. Take URL: http://127.0.0.1:8000/ & test it on browser.
 
+Make sure the line, python manage.py runserver, stays running in terminal in order to view website. 
 
 # Login page
 ![image](https://user-images.githubusercontent.com/54566871/102701829-20ac3a00-4210-11eb-8f5e-6d58c67200c3.png)
